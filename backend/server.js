@@ -12,21 +12,13 @@ const port = process.env.PORT || 8000
 
 connectDB();
 const app = express()
-// cookie parser
-app.use(cookieParser())
+
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+// cookie parser
+app.use(cookieParser())
 
 
-// Configure CORS options
-const corsOptions = {
-    origin: 'http://localhost:3000', // Change this to your frontend's URL
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    optionsSuccessStatus: 204,
-  };
-  
-  app.use(cors(corsOptions));
 
 app.get("/",(req,res)=>{
     res.send("APi is running")
