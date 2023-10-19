@@ -29,5 +29,6 @@ app.use(errorHandler)
 app.use('/api/products',productRoute)
 app.use('/api/users',userRoute)
 app.use('/api/orders', orderRoute);
+app.get('/api/config/paypal',(req,res)=>res.send({clientId :process.env.PAYPAL_CLIENT_ID}))
 
 app.listen(port, ()=>{console.log(`server running on port ${port}`)})
